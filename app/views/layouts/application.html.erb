@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Hang Time</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <nav class="navbar">
+        <%= link_to root_path, :class => "link-logo", :action => 'go' do%>
+        <div class="d-inline-flex">
+          <span class="icon-group"></span>
+          <%#= image_tag "nba2White.svg", :style => "height: 55px; margin-top: 9px", :class => "img-responsive filter-logo" ""%>
+          <h2 class="align-self-center ml-2">nba</h2>
+        </div>
+        <% end %>
+        
+        <!-- 
+        <button class="navbar-toggler justify-content-end mr-1 bg-primary" type="button" 
+            data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Alterna navegação">
+              <span class="navbar-toggler-icon"></span>
+        </button> -->
+          
+        <div class="w-75 d-flex justify-content-end">
+          <ul class="linkNavBar d-flex justify-content-around ">
+            <li class="nav-item active ">
+            <%= link_to 'Jogadores', players_path, {:class=>"nav-link"} %>
+              <%#<a class="nav-link text-white" href="feed.html">Adote Aqui<span class="sr-only">(Página atual)</span></a> %>
+            </li>
+            <li class="nav-item">
+            <%= link_to 'Times', teams_path, {:class=>"nav-link"} %>
+            </li>
+
+            
+          </ul>
+
+          <div>
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+              </label>
+              <!--<em>Mudar tema</em>-->
+            </div>
+          </div>
+    
+        </div>
+            
+        
+      </nav>
+      <%= yield %>
+      <div class="push"></div>
+    </div>
+    <footer class="footer">
+    </footer>
   </body>
+
+  <script>
+
+    
+   
+
+  </script>
 </html>

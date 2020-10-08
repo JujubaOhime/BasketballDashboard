@@ -1,0 +1,228 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ // Place all the styles related to the LandingPage controller here.
+ // They will automatically be included in application.css.
+ // You can use Sass (SCSS) here: https://sass-lang.com/
+ 
+ /* http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+ */
+ 
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed, 
+ figure, figcaption, footer, header, hgroup, 
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+ }
+ /* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure, 
+ footer, header, hgroup, menu, nav, section {
+     display: block;
+ }
+ body {
+     line-height: 1;
+ }
+ ol, ul {
+     list-style: none;
+ }
+ blockquote, q {
+     quotes: none;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+     content: '';
+     content: none;
+ }
+ table {
+     border-collapse: collapse;
+     border-spacing: 0;
+ }
+ 
+ // terminado o reset css
+ 
+ :root{
+     --primary: #E47041;
+     --constrast-dark-light: #161616;
+     --dark-light: #fafafa;
+     --secondary: #fafafa;
+     --terciary: #B54213
+     --orange1: #B54213;
+     --orange2: #E47041;
+     --orange3: #EF7F4D;
+     --white: #fafafa;
+     --black: #161616;
+     }
+
+    [data-theme="dark"]{
+        --dark-light: #161616;
+        --constrast-dark-light: #fafafa
+    }
+ 
+ body{
+     background: cover;
+    background: #807979; /* Old browsers */
+   background: -moz-linear-gradient(left,  var(--primary) 0%, var(--primary) 35%, var(--constrast-dark-light) 35%, var(--constrast-dark-light) 100%); /* FF3.6+ */
+   background: -webkit-gradient(linear, left top, right top, color-stop(0%,var(--primary)), color-stop(35%,var(--primary)), color-stop(35%,var(--constrast-dark-light)), color-stop(100%,var(--constrast-dark-light))); /* Chrome,Safari4+ */
+   background: -webkit-linear-gradient(left,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(left,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* Opera 11.10+ */
+   background: -ms-linear-gradient(left,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* IE10+ */
+   background: linear-gradient(to right,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* W3C */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--primary)', endColorstr='var(--constrast-dark-light)',GradientType=1 ); /* IE6-9 */
+
+ }
+
+ @font-face {
+     font-family: 'Basketball';
+     src: font-url('Basketball.otf');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+ @font-face{
+     font-family: 'Roboto';
+     src: font-url('Roboto-Regular.ttf');
+ }
+
+ @font-face{
+     font-family: 'Logo';
+     src: font-url('icomoon.ttf')
+ }
+
+ h2{
+     font-family: Basketball !important ;
+ }
+
+
+
+ nav h2{
+     font-size: 85px;
+     color: var(--constrast-dark-light);
+ }
+
+
+ nav a{
+    font-family: Roboto;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: var(--dark-light);
+    transition: 0.3s;
+    letter-spacing: -3px;
+ }
+
+ em{
+    color: var(--dark-light);
+}
+
+ nav a:hover{
+     color: var(--primary);
+     transition: 0.3s;
+ }
+
+ .icon-group{
+    font-family: Logo;
+    color: var(--constrast-dark-light);
+    font-size: 62px;
+    margin-top: 9px
+ }
+
+ .icon-group:before {
+
+    content: "\e900";
+  }
+
+nav ul{
+    width: 60%;
+    margin-right: 15px;
+}
+  
+  .link-logo:hover{
+    color: none !important;
+    transition: 0s;
+  }
+
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+  
+    em {
+      margin-left: 10px;
+      font-size: 1rem;
+    }
+  }
+  .theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  
+  .theme-switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--primary);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
