@@ -1,0 +1,21 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cidade</th>
+      <th>Imagem</th>
+      <th colspan="1">Ver</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.city %></td>
+        <td> <%= image_tag team.wikipedia_logo_url, size: "25x25" %> </td>
+        <td><%= link_to "ver", team_path(team) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
