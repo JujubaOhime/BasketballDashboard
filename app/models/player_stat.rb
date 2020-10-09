@@ -1,3 +1,3 @@
-class Player_Stat < ApplicationRecord
+class PlayerStat < ApplicationRecord
 
 end
