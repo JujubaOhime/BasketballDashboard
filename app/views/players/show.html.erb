@@ -1,0 +1,26 @@
+<script>
+
+  $( document ).on('turbolinks:load', function(){
+     team_color = "#" + "<%= @player.team.primary_color %>" ;
+     console.log(team_color);
+     document.documentElement.style.setProperty('--primary', team_color);
+     
+ });  
+</script>
+<section id="player">
+    <div class="container">
+    <div>
+        <%#= image_tag("#{@player.usa_today_headshot_no_background_url}") %>
+        <%#= image_tag("#{@player.photo_url}") %>
+    </div>
+    <div class="d-inline-flex justify-content-end w-100">
+        <div class="player-name">
+            <h2><%= @player.last_name %></h2>
+            <h2><%= @player.first_name %></h2>
+        </div>
+        <h2 class="player-number"><%= @player.jersey%></h2>
+    </div>
+    </div>
+</section>
+
+

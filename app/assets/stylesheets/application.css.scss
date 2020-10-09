@@ -89,12 +89,12 @@
  body{
      background: cover;
     background: #807979; /* Old browsers */
-   background: -moz-linear-gradient(left,  var(--primary) 0%, var(--primary) 35%, var(--constrast-dark-light) 35%, var(--constrast-dark-light) 100%); /* FF3.6+ */
-   background: -webkit-gradient(linear, left top, right top, color-stop(0%,var(--primary)), color-stop(35%,var(--primary)), color-stop(35%,var(--constrast-dark-light)), color-stop(100%,var(--constrast-dark-light))); /* Chrome,Safari4+ */
-   background: -webkit-linear-gradient(left,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* Chrome10+,Safari5.1+ */
-   background: -o-linear-gradient(left,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* Opera 11.10+ */
-   background: -ms-linear-gradient(left,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* IE10+ */
-   background: linear-gradient(to right,  var(--primary) 0%,var(--primary) 35%,var(--constrast-dark-light) 35%,var(--constrast-dark-light) 100%); /* W3C */
+   background: -moz-linear-gradient(left,  var(--primary) 0%, var(--primary) 30%, var(--constrast-dark-light) 30%, var(--constrast-dark-light) 100%); /* FF3.6+ */
+   background: -webkit-gradient(linear, left top, right top, color-stop(0%,var(--primary)), color-stop(30%,var(--primary)), color-stop(30%,var(--constrast-dark-light)), color-stop(100%,var(--constrast-dark-light))); /* Chrome,Safari4+ */
+   background: -webkit-linear-gradient(left,  var(--primary) 0%,var(--primary) 30%,var(--constrast-dark-light) 30%,var(--constrast-dark-light) 100%); /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(left,  var(--primary) 0%,var(--primary) 30%,var(--constrast-dark-light) 30%,var(--constrast-dark-light) 100%); /* Opera 11.10+ */
+   background: -ms-linear-gradient(left,  var(--primary) 0%,var(--primary) 30%,var(--constrast-dark-light) 30%,var(--constrast-dark-light) 100%); /* IE10+ */
+   background: linear-gradient(to right,  var(--primary) 0%,var(--primary) 30%,var(--constrast-dark-light) 30%,var(--constrast-dark-light) 100%); /* W3C */
    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--primary)', endColorstr='var(--constrast-dark-light)',GradientType=1 ); /* IE6-9 */
 
  }
@@ -120,7 +120,17 @@
 
  h2{
      font-family: Basketball !important ;
+     color: var(--constrast-dark-light);
  }
+
+#player h2{
+  color: var(--primary);
+  font-size: 50px;
+}
+
+#player .player-name h2:last-child{
+  margin-left: 30px;
+}
 
 .links-nav{
     width: 75%;
@@ -132,7 +142,10 @@
      color: var(--constrast-dark-light);
  }
 
-
+ .player-number{
+   color: var(--primary);
+   font-size: 50vh !important;
+ }
  nav a{
     font-family: Roboto;
     font-size: 25px;
