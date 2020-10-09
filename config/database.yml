@@ -19,8 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  
 development:
   <<: *default
   database: postgres
@@ -66,6 +65,7 @@ test:
   password: ripKobeBryant
   host: nba-test-instance-1.cvxs8zev5d0u.us-east-1.rds.amazonaws.com
   port: 5432
+  
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -93,3 +93,4 @@ production:
   password: ripKobeBryant
   host: nba-test-instance-1.cvxs8zev5d0u.us-east-1.rds.amazonaws.com
   port: 5432
+  pool: 5
