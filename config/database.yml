@@ -61,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: postgre
+  database: postgres
   username: candidato
   password: ripKobeBryant
   host: nba-test-instance-1.cvxs8zev5d0u.us-east-1.rds.amazonaws.com
@@ -88,9 +88,9 @@ test:
 #
 production:
   <<: *default
-  database: postgre
+  database: postgres
   username: candidato
   password: ripKobeBryant
   host: nba-test-instance-1.cvxs8zev5d0u.us-east-1.rds.amazonaws.com
   port: 5432
-
+  url: <%= ENV['DATABASE_URL'] %>
