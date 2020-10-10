@@ -269,4 +269,6 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "player_stats", "teams", primary_key: "team_id", name: "player_stats_teams_team_id_fk"
   add_foreign_key "players", "teams", primary_key: "team_id", name: "players_teams_team_id_fk"
   add_foreign_key "team_stats", "teams", primary_key: "team_id", name: "team_stats_teams_team_id_fk"
+
+  
 end
