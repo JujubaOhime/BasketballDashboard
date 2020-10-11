@@ -9,12 +9,8 @@
 </script>
 <section id="player">
     <div class="container">
-
-        <div class="d-inline-flex justify-content-end w-100 mt-2">
-            <div>
-            <%#= image_tag("#{@player.team.wikipedia_logo_url}")%>
-            </div>
-            <div class="d-inline-flex player-main">
+        <div class="player-main">
+            <div class="d-inline-flex">
                 <div class="player-name">
                     <h2><%= @player.last_name %></h2>
                     <h2><%= @player.first_name %></h2>
@@ -23,16 +19,31 @@
                 <h2 class="player-number"><%= @player.jersey%></h2>
                 
             </div>
-            
-            
         </div>
-        <div class="d-inline-flex justify-content-center team-text w-100 align-items-center">
+
+        <div class="player-main-sm">
+            <h2 class="player-number"><%= @player.jersey%></h2>
+            <div class="d-inline-flex w-100">
+                <div class="player-name d-inline-flex">
+                    <div class="d-block">
+                        <h2><%= @player.last_name %></h2>
+                        <h2><%= @player.first_name %></h2>
+                    </div>
+                    <%= image_tag("#{@player.photo_url}", class:"img-responsive rounded player-photo") %>
+                </div>
+                
+                
+            </div>
+        </div>
+
+
+        <div class="team-text">
             <%= image_tag("#{@player.team.wikipedia_logo_url}", class:"img-responsive") %>
-            <p class="w-50 about-player"><%=@player.first_name%> <%=@player.last_name %> atualmente no
+            <p class="about-player"><%=@player.first_name%> <%=@player.last_name %> atualmente no
              time <span style="color: var(--primary)">
             <%=@player.team.name %></span> como <%= position_to_br(@player.position) %>, joga na NBA há <%= @player.experience %> anos.
             
-             Nasceu em <%=@player.birth_city%> no <%= date_to_br(@player.birth_date)%> em 
+             Nasceu no <%= date_to_br(@player.birth_date)%> em 
              <%=@player.birth_city %>, <%=@player.birth_state%></p>
              <%# image_tag("#{@player.photo_url}", class:"img-responsive ml-4 rounded") %>
         </div>

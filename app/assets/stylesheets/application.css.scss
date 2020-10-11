@@ -139,22 +139,17 @@
   color: var(--primary);
   text-shadow: 6px 6px 0px var(--dark-light);
   font-family: Basketball;
+  font-size: 50vh;
+  margin-left: 10px;
 }
 
 #player .player-name{
   text-shadow: 4px 4px 0px var(--constrast-dark-light);
 }
 
-.player-number{
-  color: var(--primary);
-  font-size: 50vh !important;
-  margin-left: 10px;
-}
-
 .team-text{
   width: 100%;
-  margin-top: 3rem;
-  padding-top: 3rem;
+  margin-top: 5rem;
   justify-content: center;
   align-items: center;
   display: inline-flex;
@@ -184,6 +179,13 @@
   width: auto;
   -webkit-filter: drop-shadow( -4px 4px 0px var(--dark-light));
   filter: drop-shadow( -4px 4px 0px var(--dark-light));
+}
+
+.player-main{
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 #player .player-photo{
@@ -402,7 +404,22 @@ nav ul{
   border: 3px solid var(--primary);
   transition: 0.3s;
 }
+
+#player{
+  height: calc(100vh - var(--navbar));
+}
   
+.team-text{
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  
+}
+
+.player-main-sm{
+  display: none;
+}
   @media only screen and (max-width: 720px){
     .team-name{
       margin-top: 10px;
@@ -436,8 +453,43 @@ nav ul{
 
   @media only screen and (max-width: 620px){
 
+    #player h2{
+      font-size: 45px;
+    }
+
+    .player-main{
+      display: none;
+    }
+
+    .player-main-sm{
+      display: unset;
+      justify-content: center;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .player-main-sm .player-name{
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+    }
+
+    #player .player-photo{
+      position: unset; 
+      height: 81px;
+    }
+
+
+
+    #player .player-number{
+      font-size: 180px;
+      margin-left: 0px;
+      margin-right: 20px;
+      text-align: end;
+    }
+
     :root {
-      --navbar: 101px;
+      --navbar: 147px;
     }
 
     body{
@@ -465,6 +517,7 @@ nav ul{
         color: var(--white) !important;
         transition: 0.3s;
         letter-spacing: -3px;
+        font-size: 20px;
      }
 
      .links-nav{
