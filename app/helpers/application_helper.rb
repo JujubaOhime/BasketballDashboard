@@ -38,19 +38,14 @@ module ApplicationHelper
     def position_to_br(position)
         
         if position == "SG"
-            puts position
             position = "Lançador"
         elsif position == "SF"
-            puts position
             position = "Lateral"
         elsif position == "C"
-            puts position
             position = "Pivô"
         elsif position == "PF"
-            puts position
             position = "Libero"
         elsif position == "PG"
-            puts position
             position = "Armador"
         end
         return position

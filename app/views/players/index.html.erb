@@ -82,11 +82,11 @@
                 <div class="card mt-5 mr-4 ml-4 mb-4" style="width: 15rem;">
                     <div class="d-inline-flex justify-content-end">
                     <%= image_tag("#{player.photo_url}", class:"rounded player-photo card-img-top", style:"margin-right: 0px") %>
-                    <%= image_tag("#{player.team.wikipedia_logo_url}", class:"rounded player-photo card-img-top", style:"height: 50px; width: 50px !important; margin-top: 10px; margin-right: 10px; margin-left: 0px") %>
+                    <%= image_tag("#{player.team.wikipedia_logo_url}", class:"rounded player-photo card-img-top", style:"height: 68px; width: 68px !important; margin-top: 10px; margin-right: 10px; margin-left: 0px") %>
                     </div>
                     <div class="card-body ">
                         <h3 class="card-title" style="font-size: 35px"><%= player.first_name %> <%= player.last_name %> </h3>
-                        <h2 class="card-text"> <%= player.jersey%></h2>
+                        <h2 class="card-text" style="color: #<%=player.team.primary_color%>"> <%= player.jersey%></h2>
                         <p class="card-text"><%= position_to_br(player.position) %> pelo <span style="color: #<%=player.team.primary_color %>"><%=player.team.name %></span></p>
                         <% if player.player_stat %>
                             <p>Jogos: <%= player.player_stat&.games %></p>
