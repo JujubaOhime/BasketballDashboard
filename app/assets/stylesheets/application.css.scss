@@ -219,7 +219,7 @@
   filter: drop-shadow( -4px 4px 0px var(--dark-light));
 }
 
-#team-players {
+.team-players {
   width: 100vw !important;
 }
 
@@ -239,14 +239,14 @@
   margin-bottom: 5px;
 }
 
-#team-players h2{
+.team-players h2{
   font-size: 100px;
   text-align: center;
   color: var(--primary);
   text-shadow: 3px 3px 0px var(--dark-light)
 }
 
-#team-players .card{
+.team-players .card{
   background-color: var(--constrast-dark-light);
   border: none;
   border-right: 4px solid var(--primary);
@@ -254,20 +254,20 @@
 
 }
 
-#team-players .card h3{
+.team-players .card h3{
   font-family: Roboto;
   text-align: center;
   font-size: 16px;
   color: var(--dark-light);
 }
 
-#team-players .card p{
+.team-players .card p{
   font-family: Roboto;
   font-size: 16px;
   color: var(--dark-light);
 }
 
-#team-players .row{
+.team-players .row{
 }
 
 .row p{
@@ -330,7 +330,7 @@ a:hover{
     content: "\e900";
   }
 
-nav ul{
+.links-nav ul{
     margin-right: 15px;
 }
 
@@ -484,7 +484,57 @@ nav ul{
   border: none
 }
  
+.paginator{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 
+.pagination{
+  display: flex;
+  border-radius: 0.25rem;
+  box-shadow: 3px 3px 0px var(--dark-light);
+  margin: 0;
+  padding: 0;
+}
+
+.pagination li{
+    flex: 1;
+    list-style: none;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.page-link{
+  color: var(--primary);
+  background-color: var(--constrast-dark-light);
+  border: none;
+  padding: 0.5rem 0.7rem;
+  font-family: "Roboto";
+}
+
+.page-link:hover{
+  color: var(--primary);
+  background-color: var(--constrast-dark-light);
+}
+
+.page-item.disabled .page-link{
+  color: var(--primary);
+  cursor: pointer;
+  pointer-events: none;
+  border: none;
+  background-color: var(--constrast-dark-light);
+}
+
+.page-item.active .page-link{
+  background-color: var(--primary);
+  color: var(--constrast-dark-light);
+  border: none;
+}
 @media only screen and (max-width: 720px){
     .team-name{
       margin-top: 10px;
@@ -495,7 +545,7 @@ nav ul{
 
     }
 
-    #team-players h2{
+    .team-players h2{
       font-size: 70px;
     }
 
@@ -613,7 +663,7 @@ nav ul{
 
     }
 
-    #team-players h2{
+    .team-players h2{
       font-size: 50px;
       text-shadow: 1px 1px 1px var(--dark-light)
     }
@@ -658,7 +708,7 @@ nav ul{
 
     }
 
-    #team-players h2{
+    .team-players h2{
       font-size: 50px;
     }
     

@@ -1,37 +1,104 @@
-<section class="container p-4">
-<%= search_form_for @q do |f| %>
-  <div class="search-border">
-    <div class="input-group">
-      <%= f.search_field :first_name_or_last_name_or_team_name_cont, placeholder: "Pesquisar" %>
-      <div class="input-group-append">
-        <%= button_tag( :class => "button_green") do %>
-          <i class="fa fa-search"></i>
-        <% end %>
+<section class="container p-4 team-players " id="team ">
+  <%= search_form_for @q do |f| %>
+    <div class="search-border">
+      <div class="input-group">
+        <%= f.search_field :first_name_or_last_name_or_team_name_cont, placeholder: "Pesquisar" %>
+        <div class="input-group-append">
+          <%= button_tag( :class => "button_green") do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Time</th>
-      <th>Imagem</th>
-      <th colspan="1">Ver</th>
-    </tr>
-  </thead>
+<h2 class="d-none d-sm-block mt-3 text-right">Jogadores</h2>
+<h2 class="d-sm-none mt-3 text-center">Jogadores</h2>
 
-  <tbody>
-    <% @players.each do |player| %>
-      <tr>
-        <td><%= player.first_name %> <%= player.last_name %></td>
-        <td><%= player.team.name %></td>
-        <td> <%= image_tag player.photo_url, size: "50x50" %> </td>
-        <td><%= link_to "ver", player_path(player) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+ <div class="mb-2 d-none d-sm-block", style="">
+        <% @players.each do |player| %>
+        
+            <%= link_to player_path(player), :action => 'go' do %>
+                <div class="row mt-5" style="border-left: 5px solid var(--dark-light); border-bottom: 5px solid var(--dark-light)">
+                    <div class="col-7 row"  style="background: var(--primary); " > 
+                        <div class="col-2" >
+                            <%= image_tag("#{player.photo_url}", class:"rounded player-photo ") %>
+                        </div>
+                        <div class="col-2" style="display: flex; align-items: center; justify-content: center" >
+                            <p style="color: var(--constrast-dark-light); font-size: 45px; font-family: Basketball; 
+                            border-right: 3px solid var(--dark-light); 
+                            padding-right: 15px"><%= player.jersey%></p>
+                        </div>
+                        <div class="col h-100 ml-2 name-position" >
+                            <div class="d-table-cell ">
+                                <p style="color: var(--constrast-dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.first_name%> <%= player.last_name%></p>
+                                <p style="color: var(--constrast-dark-light); font-size: 15px; margin-top: 5px"><%= position_to_br(player.position) %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col row"  style="background: var(--constrast-dark-light); " > 
+                        <div class="col team-player-stats h-100" >
+                            <div class="d-table-cell" style="text-align: center">
+                            <% if player.player_stat %>
+                                <p style="color: var(--dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.player_stat&.games %></p>
+                                <p style="color: var(--dark-light); font-size: 15px; margin-top: 5px">Jogos</p>
+                            <% else %>
+                                <p style="color: var(--dark-light); font-size: 20px;">---</p>
+                            <% end %>
+                            </div>
+                        </div>
+                        <div class="col team-player-stats h-100" >
+                            <div class="d-table-cell" style="text-align: center">
+                            <% if player.player_stat %>
+                                <p style="color: var(--dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.player_stat&.free_throws_percentage %>%</p>
+                                <p style="color: var(--dark-light); font-size: 15px; margin-top: 5px">Lances Livre</p>
+                            <% else %>
+                                <p style="color: var(--dark-light); font-size: 20px;">---</p>
+                            <% end %>
+                            </div>
+                        </div>
+                        <div class="col team-player-stats h-100">
+                            <div class="col d-table-cell" style="text-align: center">
+                            <% if player.player_stat %>
+                                <p style="color: var(--dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.player_stat&.field_goals_percentage %>%</p>
+                                <p style="color: var(--dark-light); font-size: 15px; margin-top: 5px">Cestas de Campo</p>
+                            <% else %>
+                                <p style="color: var(--dark-light); font-size: 20px;">---</p>
+                            <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="mb-2 d-sm-none", style="display: flex;
+    flex-wrap: wrap;
+    justify-content: center;">
+        <% @players.each do |player| %>
+        
+            <%= link_to player_path(player), :action => 'go' do %>
+                <div class="card mt-5 mr-4 ml-4 mb-4" style="width: 15rem;">
+                    <%= image_tag("#{player.photo_url}", class:"rounded player-photo card-img-top") %>
+                    <div class="card-body ">
+                        <h3 class="card-title" style="font-size: 35px"><%= player.first_name %> <%= player.last_name %> </h3>
+                        <h2 class="card-text"> <%= player.jersey%></h2>
+                        <p class="card-text"><%= position_to_br(player.position) %></p>
+                        <% if player.player_stat %>
+                            <p>Jogos: <%= player.player_stat&.games %></p>
+                            <p>Cestas de Campo: <%= player.player_stat&.field_goals_percentage%>%</p>
+                            <p>Lances Livre: <%= player.player_stat&.free_throws_percentage %>%</p>
+                        <% else %>
+                            <p>Jogos: ---</p>
+                            <p>Cestas de Campo: ---</p>
+                            <p>Lances Livre: ---</p>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+
 </section>
 <%= paginate @players, window: 1, left: 1, right: 1%>

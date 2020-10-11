@@ -3,6 +3,6 @@ class Player < ApplicationRecord
     has_one :player_stat
     ransack_alias :team, :team_name
     
-    paginates_per 15
+    paginates_per 12
 
 end
