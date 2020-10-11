@@ -1,10 +1,15 @@
+<%= search_form_for @q do |f| %>
+  <%= f.label :first_name_or_last_name_or_team_cont %>
+  <%= f.search_field :first_name_or_last_name_or_team_cont %>
+  <%= f.submit %>
+<% end %>
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Cidade</th>
+      <th>Sobrenome</th>
+      <th>Time</th>
       <th>Imagem</th>
-      <th>Brasão do Time</th>
       <th colspan="1">Ver</th>
     </tr>
   </thead>
@@ -13,9 +18,9 @@
     <% @players.each do |player| %>
       <tr>
         <td><%= player.first_name %></td>
-        <td><%= player.birth_city %></td>
+        <td><%= player.last_name %></td>
+        <td><%= player.team.name %></td>
         <td> <%= image_tag player.photo_url, size: "50x50" %> </td>
-        <td> <%= image_tag player.team.wikipedia_logo_url, size: "100x100" %> </td>
         <td><%= link_to "ver", player_path(player) %></td>
       </tr>
     <% end %>
