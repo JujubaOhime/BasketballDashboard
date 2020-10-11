@@ -2,9 +2,8 @@ class PlayersController < ApplicationController
 
     #GET /players
     def index
-       @players = Player.all
        @q = Player.ransack(params[:q])
-       @players = @q.result
+       @players = @q.result.page(params[:page])
 
     end
 

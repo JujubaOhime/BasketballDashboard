@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
     def index
-        @teams = Team.all
+        @q = Team.ransack(params[:q])
+        @teams = @q.result.page(params[:page])
     end
 
     def show

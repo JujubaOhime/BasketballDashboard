@@ -11,6 +11,7 @@ gem 'pg'
 gem 'puma', '~> 4.1'
 
 gem 'ransack'
+gem 'kaminari'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

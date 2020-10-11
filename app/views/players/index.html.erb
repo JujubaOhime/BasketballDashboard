@@ -1,13 +1,21 @@
+<section class="container p-4">
 <%= search_form_for @q do |f| %>
-  <%= f.label :first_name_or_last_name_or_team_cont %>
-  <%= f.search_field :first_name_or_last_name_or_team_cont %>
-  <%= f.submit %>
+  <div class="search-border">
+    <div class="input-group">
+      <%= f.search_field :first_name_or_last_name_or_team_name_cont, placeholder: "Pesquisar" %>
+      <div class="input-group-append">
+        <%= button_tag( :class => "button_green") do %>
+          <i class="fa fa-search"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
+
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Sobrenome</th>
       <th>Time</th>
       <th>Imagem</th>
       <th colspan="1">Ver</th>
@@ -17,8 +25,7 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.first_name %></td>
-        <td><%= player.last_name %></td>
+        <td><%= player.first_name %> <%= player.last_name %></td>
         <td><%= player.team.name %></td>
         <td> <%= image_tag player.photo_url, size: "50x50" %> </td>
         <td><%= link_to "ver", player_path(player) %></td>
@@ -26,3 +33,5 @@
     <% end %>
   </tbody>
 </table>
+</section>
+<%= paginate @players, window: 1, left: 1, right: 1%>
