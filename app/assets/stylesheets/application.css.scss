@@ -515,11 +515,16 @@ a:hover{
   border: none;
   padding: 0.5rem 0.7rem;
   font-family: "Roboto";
+  transition: 0.5s;
+  outline: none;
+  line-height: 20px;
 }
 
+
 .page-link:hover{
+  transition: 0.5s;
   color: var(--primary);
-  background-color: var(--constrast-dark-light);
+  background-color: var(--dark-light);
 }
 
 .page-item.disabled .page-link{
@@ -534,6 +539,20 @@ a:hover{
   background-color: var(--primary);
   color: var(--constrast-dark-light);
   border: none;
+}
+
+.page-item.active .page-link:hover{
+  color: var(--dark-light);
+}
+
+.fa-forward:before{
+  content: "\f04e";
+  color: var(--primary);
+}
+
+.fa-backward:before{
+  color: var(--primary);
+  content: "\f04a";
 }
 @media only screen and (max-width: 720px){
     .team-name{
