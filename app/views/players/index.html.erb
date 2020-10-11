@@ -32,7 +32,7 @@
                         <div class="col h-100 ml-2 name-position" >
                             <div class="d-table-cell ">
                                 <p style="color: var(--constrast-dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.first_name%> <%= player.last_name%></p>
-                                <p style="color: var(--constrast-dark-light); font-size: 15px; margin-top: 5px"><%= position_to_br(player.position) %></p>
+                                <p style="color: var(--constrast-dark-light); font-size: 15px; margin-top: 5px"><%= position_to_br(player.position) %> pelo <%= player.team.name%></p>
                             </div>
                         </div>
                     </div>
@@ -80,11 +80,14 @@
         
             <%= link_to player_path(player), :action => 'go' do %>
                 <div class="card mt-5 mr-4 ml-4 mb-4" style="width: 15rem;">
-                    <%= image_tag("#{player.photo_url}", class:"rounded player-photo card-img-top") %>
+                    <div class="d-inline-flex justify-content-end">
+                    <%= image_tag("#{player.photo_url}", class:"rounded player-photo card-img-top", style:"margin-right: 0px") %>
+                    <%= image_tag("#{player.team.wikipedia_logo_url}", class:"rounded player-photo card-img-top", style:"height: 50px; width: 50px !important; margin-top: 10px; margin-right: 10px; margin-left: 0px") %>
+                    </div>
                     <div class="card-body ">
                         <h3 class="card-title" style="font-size: 35px"><%= player.first_name %> <%= player.last_name %> </h3>
                         <h2 class="card-text"> <%= player.jersey%></h2>
-                        <p class="card-text"><%= position_to_br(player.position) %></p>
+                        <p class="card-text"><%= position_to_br(player.position) %> pelo <span style="color: #<%=player.team.primary_color %>"><%=player.team.name %></span></p>
                         <% if player.player_stat %>
                             <p>Jogos: <%= player.player_stat&.games %></p>
                             <p>Cestas de Campo: <%= player.player_stat&.field_goals_percentage%>%</p>
