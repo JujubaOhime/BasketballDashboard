@@ -42,10 +42,11 @@
             <p class="about-player"><%=@player.first_name%> <%=@player.last_name %> atualmente no
              time <span style="color: var(--primary)">
             <%=@player.team.name %></span> como <%= position_to_br(@player.position) %>, joga na NBA há <%= @player.experience %> anos.
-            
-             Nasceu no <%= date_to_br(@player.birth_date)%> em 
-             <%=@player.birth_city %>, <%=@player.birth_state%></p>
+            <% if @player.birth_city and @player.birth_date %>
+             Nasceu no <%= date_to_br(@player&.birth_date)%> em 
+             <%=@player&.birth_city %>, <%=@player&.birth_state%></p>
              <%# image_tag("#{@player.photo_url}", class:"img-responsive ml-4 rounded") %>
+             <% end %>
         </div>
     </div>
 </section>
