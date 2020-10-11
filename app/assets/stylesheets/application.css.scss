@@ -569,6 +569,65 @@ a:hover{
   color: var(--primary);
   content: "\f04a";
 }
+
+.teams{
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+}
+
+.team div{
+  display: block;
+  text-align: center;
+}
+
+.team{
+  height: 290px;
+  width: 262px;
+  margin-top: 20px;
+  background: var(--constrast-dark-light);
+  display: grid;
+  margin-right: 10px;
+}
+
+.team h2{
+  font-size: 50px;
+  margin-top: 15px;
+  text-shadow: 3px 3px 0px var(--dark-light);
+}
+
+.team p{
+  font-family: Roboto;
+  color: var(--dark-light);
+  font-size: 20px;
+}
+
+.team img{
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.team-position{
+  display: inline-flex;
+    flex-wrap: wrap;
+    width: 75%;
+    justify-content: flex-end;
+}
+
+
+.teams a{
+  text-decoration: none;
+  outline: none;
+}
+
+.teams a:hover{
+}
+
+
 @media only screen and (max-width: 720px){
     .team-name{
       margin-top: 10px;

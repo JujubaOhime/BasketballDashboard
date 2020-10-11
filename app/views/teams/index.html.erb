@@ -15,27 +15,25 @@
 
 
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Cidade</th>
-      <th>Imagem</th>
-      <th colspan="1">Ver</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-        <td><%= team.city %></td>
-        <td> <%= image_tag team.wikipedia_logo_url, size: "25x25" %> </td>
-        <td><%= link_to "ver", team_path(team) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+  <div class="teams">
+    <div class="team-position">
+      <% @teams.each do |team| %>
+        <%= link_to team_path(team), :action => 'go' do %>
+        <div class="team">
+          <%= image_tag team.wikipedia_logo_url %> 
+          <div class="">
+            <h2 style="color: #<%=team.primary_color%>"><%= team.name %></h2>
+            <p>Estado <%= team.city %></p>
+            <p>Taxa de vitória: <%= team_winrate(team.team_stat.wins, team.team_stat.losses)%>%</p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
 </section>
 
 <%= paginate @teams, window: 1, left: 1, right: 1%>

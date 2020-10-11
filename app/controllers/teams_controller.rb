@@ -1,4 +1,7 @@
 class TeamsController < ApplicationController
+
+    include TeamsHelper
+
     def index
         @q = Team.ransack(params[:q])
         @teams = @q.result.order(:name).page(params[:page])
