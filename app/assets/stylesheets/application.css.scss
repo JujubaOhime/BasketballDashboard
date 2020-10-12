@@ -748,7 +748,7 @@ a:hover{
 .name-logo{
   display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 15px;
 }
 
@@ -767,7 +767,9 @@ a:hover{
 
 .stars-card .name-logo h2{
   margin-right: 20px;
-  font-size: 45px;
+  font-size: 35px;
+  word-break: break-word;
+  width: 153px;
 }
 
 .apexcharts-legend-text{
@@ -776,7 +778,7 @@ a:hover{
   font-family: 'Roboto' !important;
 }
 
-#chart-9, #chart-11, #chart-12{
+#chart-9, #chart-11, #chart-12, #chart-13, #chart-20{
   height: unset !important;
 }
 

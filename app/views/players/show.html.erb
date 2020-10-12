@@ -85,8 +85,8 @@
         <h3>Dois pontos %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.two_pointers_percentage.to_f},
-            {name: "Falhados", data: (100 - @player.two_pointers_percentage.to_f)},
+            {name: "Sucesso", data: @player.two_pointers_percentage.to_f},
+            {name: "Falha", data: (100 - @player.two_pointers_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
     </div>
@@ -95,7 +95,7 @@
         <h3>Tres pontos %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.three_pointers_percentage.to_f},
+            {name: "Sucesso", data: @player.three_pointers_percentage.to_f},
             {name: "Falhados", data: (100 - @player.three_pointers_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -105,7 +105,7 @@
         <h3>Assistencia %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.assists_percentage.to_f},
+            {name: "Sucesso", data: @player.assists_percentage.to_f},
             {name: "Falhados", data: (100 - @player.assists_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -115,7 +115,7 @@
         <h3>Bloqueio %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.blocks_percentage.to_f},
+            {name: "Sucesso", data: @player.blocks_percentage.to_f},
             {name: "Falhados", data: (100 - @player.blocks_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -125,7 +125,7 @@
         <h3>Lance Livre %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.free_throws_percentage.to_f},
+            {name: "Sucesso", data: @player.free_throws_percentage.to_f},
             {name: "Falhados", data: (100 - @player.free_throws_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -135,7 +135,7 @@
         <h3>Roubo de Bola %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.steals_percentage.to_f},
+            {name: "Sucesso", data: @player.steals_percentage.to_f},
             {name: "Falhados", data: (100 - @player.steals_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -145,7 +145,7 @@
         <h3>Anotacoes de campo %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.field_goals_percentage.to_f},
+            {name: "Sucesso", data: @player.field_goals_percentage.to_f},
             {name: "Falhados", data: (100 - @player.field_goals_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -155,7 +155,7 @@
         <h3>Eficiencia %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.player_efficiency_rating.to_f},
+            {name: "Sucesso", data: @player.player_efficiency_rating.to_f},
             {name: "Falhados", data: (100 - @player.player_efficiency_rating.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -165,7 +165,7 @@
         <h3>Perda de Bola %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.turn_overs_percentage.to_f},
+            {name: "Sucesso", data: @player.turn_overs_percentage.to_f},
             {name: "Falhados", data: (100 - @player.turn_overs_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -175,7 +175,7 @@
         <h3>Acerto na cesta %</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.true_shooting_percentage.to_f},
+            {name: "Sucesso", data: @player.true_shooting_percentage.to_f},
             {name: "Falhados", data: (100 - @player.true_shooting_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
@@ -185,8 +185,18 @@
         <h3>Gols de Campo%</h3>
         <div style="", class="graph-and-text">
         <%= pie_chart([
-            {name: "Sucedidos", data: @player.effective_field_goals_percentage.to_f},
+            {name: "Sucesso", data: @player.effective_field_goals_percentage.to_f},
             {name: "Falhados", data: (100 - @player.effective_field_goals_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Rebote%</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucesso", data: @player.total_rebounds_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.total_rebounds_percentage.to_f)},
             ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
         </div>
     </div>

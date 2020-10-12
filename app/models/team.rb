@@ -14,4 +14,12 @@ class Team < ApplicationRecord
     delegate :true_shooting_percentage, to: :team_stat
     delegate :total_rebounds_percentage, to: :team_stat
     paginates_per 12
+
+    
+    def self.biggest_score_at(stat)
+        joins(:team_stat)
+            .order(stat => :desc)
+            .first  
+    end
+
 end

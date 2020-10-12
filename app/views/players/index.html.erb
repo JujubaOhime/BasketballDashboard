@@ -40,8 +40,8 @@
                         <div class="col team-player-stats h-100" >
                             <div class="d-table-cell" style="text-align: center">
                             <% if player.player_stat %>
-                                <p style="color: var(--dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.player_stat&.games %></p>
-                                <p style="color: var(--dark-light); font-size: 15px; margin-top: 5px">Jogos</p>
+                                <p style="color: var(--dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.player_stat&.free_throws_percentage %>%</p>
+                                <p style="color: var(--dark-light); font-size: 15px; margin-top: 5px">Lances Livre</p>
                             <% else %>
                                 <p style="color: var(--dark-light); font-size: 20px;">---</p>
                             <% end %>
@@ -50,8 +50,8 @@
                         <div class="col team-player-stats h-100" >
                             <div class="d-table-cell" style="text-align: center">
                             <% if player.player_stat %>
-                                <p style="color: var(--dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.player_stat&.free_throws_percentage %>%</p>
-                                <p style="color: var(--dark-light); font-size: 15px; margin-top: 5px">Lances Livre</p>
+                                <p style="color: var(--dark-light); font-size: 20px; text-transform: uppercase" class="d-block"><%= player.player_stat&.player_efficiency_rating %>%</p>
+                                <p style="color: var(--dark-light); font-size: 15px; margin-top: 5px">Taxa de Eficiência</p>
                             <% else %>
                                 <p style="color: var(--dark-light); font-size: 20px;">---</p>
                             <% end %>
@@ -89,9 +89,9 @@
                         <h2 class="card-text" style="color: #<%=player.team.primary_color%>"> <%= player.jersey%></h2>
                         <p class="card-text"><%= position_to_br(player.position) %> pelo <span style="color: #<%=player.team.primary_color %>"><%=player.team.name %></span></p>
                         <% if player.player_stat %>
-                            <p>Jogos: <%= player.player_stat&.games %></p>
-                            <p>Cestas de Campo: <%= player.player_stat&.field_goals_percentage%>%</p>
                             <p>Lances Livre: <%= player.player_stat&.free_throws_percentage %>%</p>
+                            <p>Cestas de Campo: <%= player.player_stat&.field_goals_percentage%>%</p>
+                            <p>Taxa de eficiência: <%= player.player_stat&.player_efficiency_rating %>%</p>
                         <% else %>
                             <p>Jogos: ---</p>
                             <p>Cestas de Campo: ---</p>

@@ -5,7 +5,18 @@ Rails.application.routes.draw do
 
   #get '/teams', to: 'teams#index'
   #get '/teams/:id', to: 'teams#show'
-  resources :teams, only: [:index, :show], path: "times"
-  resources :players, only: [:index, :show], path: "jogadores"
+  resources :teams, only: [:index, :show], path: "times" do
+    collection do
+      get :comparison
+    end
+  end
+
+  resources :players, only: [:index, :show], path: "jogadores" do
+    collection do
+      get :comparison
+    end
+  end
   #resources :players, path: "jogadores"
+  
+  
 end

@@ -12,5 +12,9 @@ class TeamsController < ApplicationController
         @team_players = Player.all.where(team_id: @team.id)
     end
 
+    def comparison
+
+    end
+
 
 end

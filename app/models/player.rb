@@ -14,8 +14,15 @@ class Player < ApplicationRecord
     delegate :usage_rate_percentage, to: :player_stat
     delegate :turn_overs_percentage, to: :player_stat
     delegate :effective_field_goals_percentage, to: :player_stat
+    delegate :total_rebounds_percentage, to: :player_stat
     ransack_alias :team, :team_name
-    
+
     paginates_per 12
+
+    def self.biggest_score_at(stat)
+        joins(:player_stat)
+            .order(stat => :desc)
+            .first  
+    end
 
 end
