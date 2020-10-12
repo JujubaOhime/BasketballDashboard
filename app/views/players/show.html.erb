@@ -22,7 +22,11 @@
         </div>
 
         <div class="player-main-sm">
-            <h2 class="player-number"><%= @player.jersey%></h2>
+            <% if @player.jersey.present? %>
+                <h2 class="player-number"><%= @player.jersey%></h2>
+            <% else %>
+                <h2 class="player-number">--</h2>
+            <% end %>
             <div class="d-inline-flex w-100">
                 <div class="player-name d-inline-flex">
                     <div class="d-block">
@@ -49,6 +53,149 @@
              <% end %>
         </div>
     </div>
+</section>
+
+<section class="show-info container mt-4 mb-4">
+<div class="div-show-info center">
+<h2>Dados</h2>
+<div class="w-100 d-inline-flex flex-row-reverse align-items-center mt-4 justify-content-start">
+    <h4><%=@player.jersey%></h4>
+    <%= image_tag("#{@player.photo_url}", class:"img-responsive rounded ", style:"height: 95px") %>
+</div>
+<p style="clear: right"><%= @player.first_name %> <%= @player.last_name%></p>
+<p>Do time <%=@player.team.name %></p>
+<p><%= position_to_br(@player.position) %></p>
+<% if @player.birth_city %>
+    <p>Nascido em <%=@player&.birth_city%> - <%= @player.birth_state%></p>
+<% else %>
+    <p>Nascido em ?? </p>
+<%end%>
+<% if @player.birth_date %>
+    <p> <%date_to_br(@player&.birth_date)%> </p>
+<% else %>
+    <p> 99/99/9999 </p>
+<% end %>
+<p>Salário de R$<%= number_with_delimiter(@player.salary, :delimiter => '.')%> </p>
+
+
+<% if @player.player_stat %>
+<div class="graph-flex">
+    
+    <div style="" class="graph-display">
+        <h3>Dois pontos %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.two_pointers_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.two_pointers_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Tres pontos %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.three_pointers_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.three_pointers_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Assistencia %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.assists_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.assists_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Bloqueio %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.blocks_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.blocks_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Lance Livre %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.free_throws_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.free_throws_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Roubo de Bola %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.steals_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.steals_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+     <div style="" class="graph-display">
+        <h3>Anotacoes de campo %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.field_goals_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.field_goals_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Eficiencia %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.player_efficiency_rating.to_f},
+            {name: "Falhados", data: (100 - @player.player_efficiency_rating.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Perda de Bola %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.turn_overs_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.turn_overs_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+    <div style="" class="graph-display">
+        <h3>Acerto na cesta %</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.true_shooting_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.true_shooting_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+     <div style="" class="graph-display">
+        <h3>Gols de Campo%</h3>
+        <div style="", class="graph-and-text">
+        <%= pie_chart([
+            {name: "Sucedidos", data: @player.effective_field_goals_percentage.to_f},
+            {name: "Falhados", data: (100 - @player.effective_field_goals_percentage.to_f)},
+            ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+        </div>
+    </div>
+
+</div>
+<% end %>
+
+</div>
+
 </section>
 
 

@@ -633,49 +633,146 @@ a:hover{
     text-align: center;
     color: var(--primary);
     text-shadow: 3px 3px 0px var(--dark-light);
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     margin-top: 30px;
 }
 
 .stars-card{
-  height: 360px;
-  margin-left: 15px;
+  height: 365px;
+  margin-left: 25px;
   margin-top: 10px;
+  background: var(--primary);
+  border-radius: 40px;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid var(--dark-light);
+    box-shadow: 3px 3px 0px var(--dark-light);
+    margin-bottom: 35px;
+
+    width: 280px;
+}
+
+.show-info .graph-display{
+  display: block;
+  margin: 0 auto;
+  justify-content: center; 
+  margin-top: 25px;
+  width: 320px;
+  height: 230px;
+  background: var(--primary);
+  border-radius: 35px;
+  padding: 0rem;
+  margin-bottom: 30px;
+
+  
+}
+
+.show-info h3{
+  text-align: center;
+  font-family: "Basketball";
+  color: var(--white);
+  font-size: 30px;
+  padding-top: 13px;
+}
+
+.show-info .graph-and-text{
+  display: inline-block;
+    width: 322px;
+    height: 162px;
+}
+
+.show-info h2{
+  font-size: 120px;
+  color: var(--primary);
+  text-align: right;
+  text-shadow: 4px 4px 0px var(--dark-light);
+}
+
+.show-info p{
+  text-align: right;
+  font-size: 24px;
+  font-family: "Roboto";
+  color: var(--dark-light);
+  margin-top: 10px
+}
+
+.show-info img{
+  display: block;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.show-info .apexcharts-legend-text{
+  color: var(--white)!important;
+}
+
+.graph-flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.apexcharts-pie-area .apexcharts-pie-slice-0{
+}
+
+.graph-and-text{
+  display: inline-block; width: 280px; height: 100px;
 }
 
 .stars-flex{
   display: inline-flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     width: 100%;
+}
+
+.graph-display{
+  display: inline-flex; 
+  width: 100%; 
+  justify-content: center; 
+  margin-top: 25px;
+}
+
+.show-info h4{
+  font-size: 65px;
+    color: var(--primary);
+    text-align: right;
+    text-shadow: 4px 4px 0px var(--dark-light);
+    font-family: Basketball;
 }
 
 .name-logo{
   display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 15px;
 }
 
 .name-logo img{
-  width: 140px;
-  height: 140px;
+  width: 90px;
+  height: 120px;
 }
 
 .stars-card h2{
   display: block;
   text-align: center;
-  font-size: 40px;
-  color: var(--primary);
+  font-size: 22px;
+  color: var(--constrast-dark-light);
+  height: 50px;
 }
 
 .stars-card .name-logo h2{
   margin-right: 20px;
-  font-size: 62px;
+  font-size: 45px;
 }
 
 .apexcharts-legend-text{
   color: var(--dark-light) !important;
-  font-size: 20px !important;
+  font-size: 16px !important;
   font-family: 'Roboto' !important;
 }
 
@@ -718,6 +815,26 @@ a:hover{
 
   @media only screen and (max-width: 620px){
 
+    #player{
+      height: unset;
+    }
+
+    .show-info h2{
+      text-align: center;
+    }
+
+    .stars-flex{
+      justify-content: center;
+      
+    }
+
+    .stars-card{
+      margin-left: 0px;
+    }
+
+    .stars{
+      font-size: 72px;
+    }
 
     .team-position{
       width: 100%;

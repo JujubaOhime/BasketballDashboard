@@ -17,42 +17,286 @@
 <section class="container">
     <h2 class="stars">Destaques</h2>
     <div class="stars-flex">
+
+        
         <div class="stars-card">
-            <h2>Time com melhor desempenho: </h2>
+            <h2>Time com melhor desempenho</h2>
+            <%= link_to team_path(@teams.find_by(team_id: biggest_victory(@teams_stats).team_id)), :action => 'go' do %>
             <div class="name-logo">
                 <h2 style="color: #<%=@teams.find_by(team_id: biggest_victory(@teams_stats).team_id).primary_color %>">
                     <%= @teams.find_by(team_id: biggest_victory(@teams_stats).team_id).name%>
                 </h2>
                 <%= image_tag("#{@teams.find_by(team_id: biggest_victory(@teams_stats).team_id).wikipedia_logo_url}", class:"img-responsive rounded team-photo") %> 
             </div>
-            <div style="display: flex; width: 100%; justify-content: center; margin-top: 15px">
-                <div style="display: inline-block; width: 250px; height: 100px">
+             <% end %>
+            <div style="" class="graph-display">
+                <div style="width: 230px" class="graph-and-text">
                 <%= pie_chart([
                     {name: "Vitória", data: biggest_victory(@teams_stats).wins},
                     {name: "Derrota", data: biggest_victory(@teams_stats).losses},
-                    ], legend: "left", colors:['var(--primary)', '#E91E63', '#9C27B0']) %>
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0'])  %>
                 
                 </div>
             </div>
+        </div>
+       
+
+        <div class="stars-card">
+            
+            <h2>Jogador com maior salario</h2>
+            <%= link_to player_path(biggest_stat(@players, 'salary')), :action => 'go' do %>
+            <div class="name-logo">
+                <div>
+                    <h2 style="color: #<%=biggest_stat(@players, 'salary').team.primary_color %>">
+                        <%= biggest_stat(@players, 'salary').first_name%> 
+                    </h2> 
+                    <h2 style="color: #<%=biggest_stat(@players, 'salary').team.primary_color %>">
+                        <%= biggest_stat(@players, 'salary').last_name%> 
+                    </h2>
+                </div>
+                <%= image_tag("#{biggest_stat(@players, 'salary').photo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="display: flex; width: 100%; justify-content: center; margin-top: 15px; height: 100px; align-items: center;">
+                <h2 style="font-size: 40px">R$<%= number_with_delimiter(biggest_stat(@players, 'salary').salary, :delimiter => '.') %></h2>
+            </div>
+            
         </div>
 
         <div class="stars-card">
-            <h2>Time com melhor desempenho</h2>
+            
+            <h2>Jogador com melhor dois pontos</h2>
+            <%= link_to player_path(biggest_stat(@players, 'two_pointers_percentage')), :action => 'go' do %>
             <div class="name-logo">
-                <h2 style="color: #<%=@teams.find_by(team_id: biggest_victory(@teams_stats).team_id).primary_color %>">
-                    <%= @teams.find_by(team_id: biggest_victory(@teams_stats).team_id).name%>
-                </h2>
-                <%= image_tag("#{@teams.find_by(team_id: biggest_victory(@teams_stats).team_id).wikipedia_logo_url}", class:"img-responsive rounded team-photo") %> 
+                <div>
+                    <h2 style="color: #<%= biggest_stat(@players, 'two_pointers_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'two_pointers_percentage').first_name%> 
+                    </h2> 
+                    <h2 style="color: #<%=biggest_stat(@players, 'two_pointers_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'two_pointers_percentage').last_name%> 
+                    </h2>
+                </div>
+                <%= image_tag("#{biggest_stat(@players, 'two_pointers_percentage').photo_url}", class:"img-responsive rounded team-photo") %> 
             </div>
-            <div style="display: flex; width: 100%; justify-content: center; margin-top: 15px">
-                <div style="display: inline-block; width: 250px; height: 100px">
+            <%end%>
+            <div style="" class="graph-display">
+                <div style="" class="graph-and-text">
                 <%= pie_chart([
-                    {name: "Vitória", data: biggest_victory(@teams_stats).wins},
-                    {name: "Derrota", data: biggest_victory(@teams_stats).losses},
-                    ], legend: "left", colors:['var(--primary)', '#E91E63', '#9C27B0']) %>
+                    {name: "Sucedidos", data: biggest_stat(@players, 'two_pointers_percentage').two_pointers_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@players, 'two_pointers_percentage').two_pointers_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0']) %>
                 
                 </div>
             </div>
+            
         </div>
+
+        <div class="stars-card">
+            
+            <h2>Time com melhor dois pontos</h2>
+            <%= link_to team_path(biggest_stat(@teams, 'two_pointers_percentage')), :action => 'go' do %>
+            <div class="name-logo">
+                    <h2 style="color: #<%= biggest_stat(@teams, 'two_pointers_percentage').primary_color %>">
+                        <%= biggest_stat(@teams, 'two_pointers_percentage').name%> 
+                    </h2> 
+                <%= image_tag("#{biggest_stat(@teams, 'two_pointers_percentage').wikipedia_logo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="" class="graph-display">
+                <div style="" class="graph-and-text">
+                <%= pie_chart([
+                    {name: "Sucedidos", data: biggest_stat(@teams, 'two_pointers_percentage').two_pointers_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@teams, 'two_pointers_percentage').two_pointers_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0'], plotOptions:{pie: {size: 200}}) %>
+                
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="stars-card">
+            
+            <h2>Jogador mais experiente</h2>
+            <%= link_to player_path(biggest_stat(@players, 'experience')), :action => 'go' do %>
+            <div class="name-logo">
+                <div>
+                    <h2 style="color: #<%=biggest_stat(@players, 'experience').team.primary_color %>">
+                        <%= biggest_stat(@players, 'experience').first_name%> 
+                    </h2> 
+                    <h2 style="color: #<%=biggest_stat(@players, 'experience').team.primary_color %>">
+                        <%= biggest_stat(@players, 'experience').last_name%> 
+                    </h2>
+                </div>
+                <%= image_tag("#{biggest_stat(@players, 'experience').photo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="display: flex; width: 100%; justify-content: center; margin-top: 15px; height: 100px; align-items: center;">
+                <h2 style="font-size: 34px"><%= biggest_stat(@players, 'experience').experience %> anos como jogador</h2>
+            </div>
+            
+        </div>
+
+        <div class="stars-card">
+            
+            <h2>Time com melhor tres pontos</h2>
+            <%= link_to team_path(biggest_stat(@teams, 'three_pointers_percentage')), :action => 'go' do %>
+            <div class="name-logo">
+                    <h2 style="color: #<%= biggest_stat(@teams, 'three_pointers_percentage').primary_color %>">
+                        <%= biggest_stat(@teams, 'three_pointers_percentage').name%> 
+                    </h2> 
+                <%= image_tag("#{biggest_stat(@teams, 'three_pointers_percentage').wikipedia_logo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="" class="graph-display">
+                <div style="" class="graph-and-text">
+                <%= pie_chart([
+                    {name: "Sucedidos", data: biggest_stat(@teams, 'three_pointers_percentage').three_pointers_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@teams, 'three_pointers_percentage').three_pointers_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0']) %>
+                
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="stars-card">
+            
+            <h2>Jogador com melhor tres pontos</h2>
+            <%= link_to player_path(biggest_stat(@players, 'three_pointers_percentage')), :action => 'go' do %>
+            <div class="name-logo">
+                <div>
+                    <h2 style="color: #<%= biggest_stat(@players, 'three_pointers_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'three_pointers_percentage').first_name%> 
+                    </h2> 
+                    <h2 style="color: #<%=biggest_stat(@players, 'three_pointers_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'three_pointers_percentage').last_name%> 
+                    </h2>
+                </div>
+                <%= image_tag("#{biggest_stat(@players, 'three_pointers_percentage').photo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="display: flex; width: 100%; justify-content: center; margin-top: 25px" class="graph-display">
+                <div style="", class="graph-and-text">
+                <%= pie_chart([
+                    {name: "Sucedidos", data: biggest_stat(@players, 'three_pointers_percentage').three_pointers_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@players, 'three_pointers_percentage').three_pointers_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0']) %>
+                
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="stars-card">
+            
+            <h2>Jogador com melhor assistencia</h2>
+            <%= link_to player_path(biggest_stat(@players, 'assists_percentage')), :action => 'go' do %>
+            <div class="name-logo">
+                <div>
+                    <h2 style="color: #<%= biggest_stat(@players, 'assists_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'assists_percentage').first_name%> 
+                    </h2> 
+                    <h2 style="color: #<%=biggest_stat(@players, 'assists_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'assists_percentage').last_name%> 
+                    </h2>
+                </div>
+                <%= image_tag("#{biggest_stat(@players, 'assists_percentage').photo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="display: flex; width: 100%; justify-content: center; margin-top: 25px" class="graph-display">
+                <div style="", class="graph-and-text">
+                <%= pie_chart([
+                    {name: "Sucedidos", data: biggest_stat(@players, 'assists_percentage').assists_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@players, 'assists_percentage').assists_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0']) %>
+                
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="stars-card">
+            
+            <h2>Jogador com melhor bloqueio</h2>
+            <%= link_to player_path(biggest_stat(@players, 'blocks_percentage')), :action => 'go' do %>
+            <div class="name-logo">
+                <div>
+                    <h2 style="color: #<%= biggest_stat(@players, 'blocks_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'blocks_percentage').first_name%> 
+                    </h2> 
+                    <h2 style="color: #<%=biggest_stat(@players, 'blocks_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'blocks_percentage').last_name%> 
+                    </h2>
+                </div>
+                <%= image_tag("#{biggest_stat(@players, 'blocks_percentage').photo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="display: flex; width: 100%; justify-content: center; margin-top: 25px" class="graph-display">
+                <div style="", class="graph-and-text">
+                <%= pie_chart([
+                    {name: "Sucedidos", data: biggest_stat(@players, 'blocks_percentage').blocks_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@players, 'blocks_percentage').blocks_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0']) %>
+                
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="stars-card">
+            
+            <h2>Jogador com mais roubo</h2>
+            <%= link_to player_path(biggest_stat(@players, 'steals_percentage')), :action => 'go' do %>
+            <div class="name-logo">
+                <div>
+                    <h2 style="color: #<%= biggest_stat(@players, 'steals_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'steals_percentage').first_name%> 
+                    </h2> 
+                    <h2 style="color: #<%=biggest_stat(@players, 'steals_percentage').team.primary_color %>">
+                        <%= biggest_stat(@players, 'steals_percentage').last_name%> 
+                    </h2>
+                </div>
+                <%= image_tag("#{biggest_stat(@players, 'steals_percentage').photo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="display: flex; width: 100%; justify-content: center; margin-top: 25px" class="graph-display">
+                <div style="", class="graph-and-text">
+                <%= pie_chart([
+                    {name: "Sucedidos", data: biggest_stat(@players, 'blocks_percentage').steals_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@players, 'blocks_percentage').steals_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0']) %>
+                
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="stars-card">
+            
+            <h2>Time com mais roubo</h2>
+            <%= link_to team_path(biggest_stat(@teams, 'steals_percentage')), :action => 'go' do %>
+            <div class="name-logo">
+                <div>
+                    <h2 style="color: #<%= biggest_stat(@teams, 'steals_percentage').primary_color %>">
+                        <%= biggest_stat(@teams, 'steals_percentage').name%> 
+                    </h2> 
+                </div>
+                <%= image_tag("#{biggest_stat(@teams, 'steals_percentage').wikipedia_logo_url}", class:"img-responsive rounded team-photo") %> 
+            </div>
+            <%end%>
+            <div style="display: flex; width: 100%; justify-content: center; margin-top: 25px" class="graph-display">
+                <div style="", class="graph-and-text">
+                <%= pie_chart([
+                    {name: "Sucedidos", data: biggest_stat(@teams, 'blocks_percentage').steals_percentage.to_f},
+                    {name: "Falhados", data: (100 - biggest_stat(@teams, 'blocks_percentage').steals_percentage.to_f)},
+                    ], legend: "left", colors:['#22bb33', '#bb2124', '#9C27B0']) %>
+                
+                </div>
+            </div>
+            
+        </div>
+
+
+
     </div>
 </section>

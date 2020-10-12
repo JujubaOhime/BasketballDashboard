@@ -114,5 +114,130 @@
             <% end %>
         <% end %>
     </div>
+</section>
+
+    <section class="show-info container mt-4 mb-4">
+    <div class="div-show-info center">
+    <h2>Dados</h2>
+    <div class="w-100 d-inline-flex flex-row-reverse align-items-center mt-4 justify-content-center">
+        <h4><%=@team.name%></h4>
+        <%= image_tag("#{@team.wikipedia_logo_url}", class:"img-responsive rounded ", style:"height: 140px; margin-right: 20px") %>
+    </div>
+
+    <div class="graph-flex">
+        <div style="" class="graph-display">
+            <h3>Dois pontos %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.two_pointers_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.two_pointers_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+    
+
+        <div style="" class="graph-display">
+            <h3>Tres pontos %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.three_pointers_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.three_pointers_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Assistencia %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.assists_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.assists_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Block %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.blocks_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.blocks_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Lance Livre %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.free_throws_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.free_throws_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Roubo de Bola %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.steals_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.steals_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Taxa de uso %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.usage_rate_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.usage_rate_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Perda de bola %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.turn_overs_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.turn_overs_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Acerto na cesta %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.true_shooting_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.true_shooting_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Rebote %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.total_rebounds_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.total_rebounds_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+        <div style="" class="graph-display">
+            <h3>Gols de campo %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Sucedidos", data: @team.effective_field_goals_percentage.to_f},
+                {name: "Falhados", data: (100 - @team.effective_field_goals_percentage.to_f)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
+
+    </div>
+     
 
 </section>
