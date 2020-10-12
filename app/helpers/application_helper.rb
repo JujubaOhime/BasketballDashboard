@@ -50,4 +50,31 @@ module ApplicationHelper
         end
         return position
     end
+
+    def team_winrate(wins, losses)
+        total = wins + losses
+        res =  ((wins*100)/total.to_f).round(2)
+        return res
+    end
+
+    def team_winrate_float(wins, losses)
+        total = wins + losses
+        res = (wins*100)/total.to_f
+        puts res
+        return res
+    end
+
+    def biggest_victory(teams)
+        victory = 0
+        best_team = nil
+        teams.each do |team|
+            percentage = team_winrate(team.wins, team.losses)
+            if percentage.to_i > victory
+                victory = percentage
+                best_team = team
+            end
+        end
+        return best_team
+    end
+
 end

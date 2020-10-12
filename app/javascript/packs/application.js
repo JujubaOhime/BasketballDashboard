@@ -4,12 +4,16 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("packs/jquery")
 require("packs/custom")
 require("packs/bootstrap.bundle")
+window.ApexCharts = require("apexcharts")
+
+import ApexCharts from 'apexcharts'
+window.ApexCharts = ApexCharts
 
 
 var jQuery = require('jquery')

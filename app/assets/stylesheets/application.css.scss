@@ -353,8 +353,9 @@ a:hover{
 }
 
 #main{
-  height: calc(100vh - var(--navbar) - 100px);
+  height: calc(100vh - var(--navbar));
   display: table;
+  margin-bottom: 10px;
 }
 
 .main-div{
@@ -627,6 +628,62 @@ a:hover{
 .teams a:hover{
 }
 
+.stars{
+  font-size: 100px;
+    text-align: center;
+    color: var(--primary);
+    text-shadow: 3px 3px 0px var(--dark-light);
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.stars-card{
+  height: 360px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.stars-flex{
+  display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.name-logo{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-logo img{
+  width: 140px;
+  height: 140px;
+}
+
+.stars-card h2{
+  display: block;
+  text-align: center;
+  font-size: 40px;
+  color: var(--primary);
+}
+
+.stars-card .name-logo h2{
+  margin-right: 20px;
+  font-size: 62px;
+}
+
+.apexcharts-legend-text{
+  color: var(--dark-light) !important;
+  font-size: 20px !important;
+  font-family: 'Roboto' !important;
+}
+
+@media only screen and (max-width: 990px){
+  .team-position{
+    justify-content: center;
+  }
+}
 
 @media only screen and (max-width: 720px){
     .team-name{
@@ -661,6 +718,10 @@ a:hover{
 
   @media only screen and (max-width: 620px){
 
+
+    .team-position{
+      width: 100%;
+    }
     .player_search{
       justify-content: center;
     }

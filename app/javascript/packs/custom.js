@@ -1,4 +1,4 @@
-$( document ).on('turbolinks:load', function(){
+$( document ).ready(function(){
     console.log( "ready!" );
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme'); 

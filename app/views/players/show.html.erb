@@ -1,6 +1,6 @@
 <script>
 
-  $( document ).on('turbolinks:load', function(){
+  $( document ).ready(function(){
      team_color = "#" + "<%= @player.team.primary_color %>" ;
      console.log(team_color);
      document.documentElement.style.setProperty('--primary', team_color);
