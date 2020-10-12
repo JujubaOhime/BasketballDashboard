@@ -125,6 +125,17 @@
     </div>
 
     <div class="graph-flex">
+
+        <div style="" class="graph-display">
+            <h3>Winrate %</h3>
+            <div style="", class="graph-and-text">
+            <%= pie_chart([
+                {name: "Vitórias", data: @team.team_stat.wins},
+                {name: "Derrotas", data: (@team.team_stat.losses)},
+                ], legend: "left", colors:['#252525', '#3d0000', '#9C27B0']) %>
+            </div>
+        </div>
+
         <div style="" class="graph-display">
             <h3>Dois pontos %</h3>
             <div style="", class="graph-and-text">
