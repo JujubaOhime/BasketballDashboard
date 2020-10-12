@@ -13,6 +13,12 @@
   </div>
 <% end %>
 
+<div>
+  <input type="search" placeholder="Enter name..." id="first_team" data-behavior="autocompleteTeam">
+  <input type="search" placeholder="Enter name..." id="second_team" data-behavior="autocompleteTeam">
+  <button type="submit" id="submit_comparison_team">
+</div>
+
 
 
   <div class="teams">
@@ -35,3 +41,16 @@
 </section>
 
 <%= paginate @teams, window: 1, left: 1, right: 1%>
+
+
+<script>
+$( document ).ready(function(){
+  $("#submit_comparison_team").click(function(){
+        localStorage = $("#first_team").val();
+        var b = $("#second_team").val();
+        <%=%>
+        
+    });
+});
+
+</script>
