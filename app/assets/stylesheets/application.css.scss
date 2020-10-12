@@ -776,6 +776,10 @@ a:hover{
   font-family: 'Roboto' !important;
 }
 
+#chart-9, #chart-11 {
+  height: unset !important;
+}
+
 @media only screen and (max-width: 990px){
   .team-position{
     justify-content: center;
