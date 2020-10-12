@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-
+    before_action :force_json, only: :search
     #GET /players
     def index
        @q = Player.ransack(params[:q])
@@ -16,5 +16,13 @@ class PlayersController < ApplicationController
         @player2 = Player.find(params[:second_player])
     end
 
+    def search
+        q = params[:q].downcase
+        @players = Player.where("first_name ILIKE ? or last_name ILIKE ?", "%#{q}%", "%#{q}%").limit(5)
+    end
+
+    def force_json
+        request.format = :json
+    end
 
 end

@@ -3,7 +3,7 @@
 <%= search_form_for @q do |f| %>
   <div class="search-border">
     <div class="input-group">
-      <%= f.search_field :name_or_city_cont, placeholder: "Pesquisar" %>
+      <%= f.search_field :name_or_city_cont, placeholder: "Pesquisar", data: { behavior: "autocompleteTeam" } %>
       <div class="input-group-append">
         <%= button_tag( :class => "button_green") do %>
           <i class="fa fa-search"></i>
@@ -12,8 +12,6 @@
     </div>
   </div>
 <% end %>
-
-
 
 
 

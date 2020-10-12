@@ -1,5 +1,7 @@
 class TeamsController < ApplicationController
 
+    before_action :force_json, only: :search
+
     include TeamsHelper
 
     def index
@@ -16,5 +18,13 @@ class TeamsController < ApplicationController
 
     end
 
+    def search
+        q = params[:q].downcase
+        @teams = Team.where("name ILIKE ?", "%#{q}%" ).limit(5)
+    end
+
+    def force_json
+        request.format = :json
+    end
 
 end

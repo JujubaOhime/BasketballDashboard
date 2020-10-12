@@ -10,12 +10,17 @@ Rails.application.routes.draw do
       get :comparison
     end
   end
+  get 'teams/search', to: 'teams#search'
+
+ 
 
   resources :players, only: [:index, :show], path: "jogadores" do
     collection do
       get :comparison
     end
   end
+
+  get 'players/search', to: 'players#search'
   #resources :players, path: "jogadores"
   
   

@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require easy-autocomplete
  *= require_self
  */
  // Place all the styles related to the LandingPage controller here.
@@ -101,6 +102,7 @@
  }
 
  
+ @import 'easy-autocomplete/dist/easy-autocomplete';
 
  @font-face {
      font-family: 'Basketball';

@@ -10,6 +10,9 @@ require("channels")
 require("packs/jquery")
 require("packs/custom")
 require("packs/bootstrap.bundle")
+require("easy-autocomplete")
+require("packs/players")
+require("packs/teams")
 window.ApexCharts = require("apexcharts")
 
 import ApexCharts from 'apexcharts'
