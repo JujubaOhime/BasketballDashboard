@@ -256,7 +256,8 @@
   border: none;
   border-right: 4px solid var(--primary);
   border-bottom: 4px solid var(--primary);
-  border: 4px solid var(--primary)
+  border: 4px solid var(--primary);
+  border-radius: 15px;
 
 }
 
@@ -704,6 +705,10 @@ a:hover{
 }
 
 .show-info .apexcharts-legend-text{
+  color: var(--white)!important;
+}
+
+#spotlight .apexcharts-legend-text{
   color: var(--white)!important;
 }
 
