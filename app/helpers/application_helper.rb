@@ -72,7 +72,7 @@ module ApplicationHelper
 
 
     def biggest_stat(players, stat)
-        players.max { |a, b| (a[stat] || 0) <=> (b[stat] || 0) }
+        players.max { |a, b| (a[:stat] || 0) <=> (b[:stat] || 0) }
     end
 
     def biggest_something_stat(players, stat)
