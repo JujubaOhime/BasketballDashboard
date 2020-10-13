@@ -1,5 +1,6 @@
 
 <section class="container comparison">
+<div class="d-table-cell w-100 comparison-vertical-align">
 <h2 class="name mb-5"><%=@team1.name%> vs <%=@team2.name%></h2>
     <div class="d-inline-flex w-100 justify-content-between mb-3">
         <h3><%= team_winrate(@team1.team_stat.wins, @team1.team_stat.losses)%>%</h3>
@@ -34,4 +35,5 @@
         <h2> Acertos na cesta </h2>
         <h3><%= @team2.true_shooting_percentage %>%</h3>
     </div>
+</div>
 </section>

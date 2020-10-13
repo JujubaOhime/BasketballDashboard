@@ -439,6 +439,16 @@ a:hover{
   display: none;
 }
 
+.comparison{
+  display: table;
+  height: calc(100vh - var(--navbar));
+}
+
+.comparison-vertical-align{
+  height: calc(100vh - var(--navbar));
+  vertical-align: middle;
+}
+
 .fa, .fas{
   font-family: "FontAwesome";
   color: var(--constrast-dark-light);
@@ -1122,7 +1132,7 @@ a:hover{
     }
 
     .comparison h2, .comparison h3{
-      font-size: 20px;
+      font-size: 18px;
     }
 
     .team-players h2{

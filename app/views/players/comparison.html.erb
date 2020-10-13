@@ -1,4 +1,5 @@
 <section class="container comparison">
+<div class="d-table-cell w-100 comparison-vertical-align">
 <% if @player1.player_stat && @player2.player_stat %>
     <h2 class="name mb-5"><%=@player1.first_name%> <%=@player1.last_name%> vs <%=@player2.first_name%> <%=@player2.last_name%></h2>
 
@@ -69,4 +70,5 @@
 <% else %>
     <h2 class="name">Infelizmente alguns dos players não tem status para serem exibidos, ficando impossível a comparação</h2>
 <%end%>
+</div>
 </section>
