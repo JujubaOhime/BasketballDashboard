@@ -1,51 +1,37 @@
 
 <section class="container comparison">
-<h2 class="name"><%=@team1.name%> vs <%=@team2.name%></h2>
-    <div>
-        <div class="row">
-            
-            <div class="col col-first">
-                <h3><%= team_winrate(@team1.team_stat.wins, @team1.team_stat.losses)%></h3>
-                <h3><%=@team1.two_pointers_percentage%></h3>
-                <h3><%= @team1.effective_field_goals_percentage %></h3>
-                <h3><%= @team1.two_pointers_percentage %></h3>
-                <h3><%= @team1.three_pointers_percentage %></h3>
-                <h3><%= @team1.free_throws_percentage %></h3>
-                <h3><%= @team1.total_rebounds_percentage %></h3>
-                <h3><%= @team1.true_shooting_percentage %></h3>
-                <h3><%= @team1.player_efficiency_rating %></h3>
-                <h3><%= @team1.turn_overs_percentage %></h3>
-                <h3><%= @team1.usage_rate_percentage %></h3>
-            </div>
+<h2 class="name mb-5"><%=@team1.name%> vs <%=@team2.name%></h2>
+    <div class="d-inline-flex w-100 justify-content-between mb-3">
+        <h3><%= team_winrate(@team1.team_stat.wins, @team1.team_stat.losses)%>%</h3>
+        <h2> Porcentagem de vitoria </h2>
+        <h3><%= team_winrate(@team2.team_stat.wins, @team2.team_stat.losses)%>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-3">
+        <h3><%= @team1.effective_field_goals_percentage %>%</h3>
+        <h2> Gols de campo </h2>
+        <h3><%= @team2.effective_field_goals_percentage %>%</h3>
+    </div>
 
-            <div class="col col-main">
-             <h2>Porcentagem de Vitória</h2>
-             <h2> field_goals_percentage </h2>
-             <h2> two_pointers_percentage </h2>
-             <h2> three_pointers_percentage </h2>
-             <h2> free_throws_percentage </h2>
-             <h2>  total_rebounds_percentage</h2>
-             <h2> true_shooting_percentage </h2>
-             <h2> player_efficiency_rating </h2>
-             <h2> turn_overs_percentage </h2>
-             <h2> usage_rate_percentage </h2>
+    <div class="d-inline-flex w-100 justify-content-between mb-3">
+        <h3><%=@team1.two_pointers_percentage%>%</h3>
+        <h2> Gol de dois pontos </h2>
+        <h3><%= @team2.two_pointers_percentage %>%</h3>
+    </div>
 
-            </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-3" >
+        <h3><%= @team1.three_pointers_percentage %>%</h3>
+        <h2> Gol de tres pontos </h2>
+        <h3><%= @team2.three_pointers_percentage %>%</h3>
+    </div>
 
-            <div class="col col-last">
-                <h3><%= team_winrate(@team2.team_stat.wins, @team2.team_stat.losses)%></h3>
-                <h3><%= @team2.effective_field_goals_percentage %></h3>
-                <h3><%= @team2.two_pointers_percentage %></h3>
-                <h3><%= @team2.three_pointers_percentage %></h3>
-                <h3><%= @team2.free_throws_percentage %></h3>
-                <h3><%= @team2.total_rebounds_percentage %></h3>
-                <h3><%= @team2.true_shooting_percentage %></h3>
-                <h3><%= @team2.player_efficiency_rating %></h3>
-                <h3><%= @team2.turn_overs_percentage %></h3>
-                <h3><%= @team2.usage_rate_percentage %></h3>
-            
-            </div>
-
-        </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-3">
+        <h3><%= @team1.free_throws_percentage %>%</h3>
+        <h2> Lances livres </h2>
+        <h3><%= @team2.free_throws_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-3">
+        <h3><%= @team1.true_shooting_percentage %>%</h3>
+        <h2> Acertos na cesta </h2>
+        <h3><%= @team2.true_shooting_percentage %>%</h3>
     </div>
 </section>

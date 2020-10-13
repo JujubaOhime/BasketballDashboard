@@ -853,8 +853,16 @@ a:hover{
   color: var(--primary);
 }
 
-.comparison .col-main{
-  font-size: 30px;
+.comparison h3{
+  font-family: "Roboto";
+  font-size: 40px;
+  color: var(--dark-light);
+}
+
+.comparison h2{
+  color: var(--primary);
+  font-size: 40px;
+  text-shadow: 1px 1px 0px var(--dark-light);
 }
 
 .comparison .name{
@@ -867,19 +875,6 @@ a:hover{
   margin-top: 20px;
 }
 
-.col-first{
-  text-align: left;
-}
-
-.col-last{
-  text-align: right;
-}
-
-.comparison .col h3{
-  font-size: 20px;
-  font-family: "Roboto";
-  color: var(--dark-light);
-}
 
 .easy-autocomplete input{
   box-shadow: 0px;
@@ -890,6 +885,18 @@ a:hover{
 @media only screen and (max-width: 990px){
   .team-position{
     justify-content: center;
+  }
+
+
+}
+
+@media only screen and (max-width: 780px){
+  .comparison h2{
+    font-size: 30px;
+
+  }
+  .comparison h3{
+    font-size: 30px;
   }
 }
 
@@ -928,6 +935,18 @@ a:hover{
 
     .search-vs-display{
       justify-content: center;
+    }
+
+    .comparison .name{
+      font-size: 48px;
+    }
+
+    .comparison h3{
+      font-size: 25px;
+    }
+
+    .comparison h2{
+      font-size: 25px;
     }
 
     .comparison-form h2{
@@ -1100,6 +1119,10 @@ a:hover{
       margin-bottom: 0px;
       text-shadow: 1px 1px 1px var(--dark-light)
 
+    }
+
+    .comparison h2, .comparison h3{
+      font-size: 20px;
     }
 
     .team-players h2{

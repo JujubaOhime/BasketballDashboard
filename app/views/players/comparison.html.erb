@@ -1,57 +1,72 @@
 <section class="container comparison">
-<h2 class="name"><%=@player1.first_name%> <%=@player1.last_name%> vs <%=@player2.first_name%> <%=@player2.last_name%></h2>
-    <div>
-        <div class="row">
-            
+<% if @player1.player_stat && @player2.player_stat %>
+    <h2 class="name mb-5"><%=@player1.first_name%> <%=@player1.last_name%> vs <%=@player2.first_name%> <%=@player2.last_name%></h2>
 
-            <div class="col col-first">
-                <h3><%=@player1.two_pointers_percentage%></h3>
-                <h3><%= @player1.field_goals_percentage %></h3>
-                <h3><%= @player1.two_pointers_percentage %></h3>
-                <h3><%= @player1.three_pointers_percentage %></h3>
-                <h3><%= @player1.free_throws_percentage %></h3>
-                <h3><%= @player1.total_rebounds_percentage %></h3>
-                <h3><%= @player1.true_shooting_percentage %></h3>
-                <h3><%= @player1.player_efficiency_rating %></h3>
-                <h3><%= @player1.assists_percentage %></h3>
-                <h3><%= @player1.steals_percentage %></h3>
-                <h3><%= @player1.blocks_percentage %></h3>
-                <h3><%= @player1.turn_overs_percentage %></h3>
-                <h3><%= @player1.usage_rate_percentage %></h3>
-            </div>
-
-            <div class="col col-main">
-                <h2> field_goals_percentage </h2>
-                <h2> two_pointers_percentage </h2>
-                <h2> three_pointers_percentage </h2>
-                <h2> free_throws_percentage </h2>
-                <h2>  total_rebounds_percentage</h2>
-                <h2> true_shooting_percentage </h2>
-                <h2> player_efficiency_rating </h2>
-                <h2> assists_percentage </h2>
-                <h2> steals_percentage </h2>
-                <h2> blocks_percentage </h2>
-                <h2> turn_overs_percentage </h2>
-                <h2> usage_rate_percentage </h2>
-
-            </div>
-
-            <div class="col col-last">
-                <h3><%= @player2.field_goals_percentage %></h3>
-                <h3><%= @player2.two_pointers_percentage %></h3>
-                <h3><%= @player2.three_pointers_percentage %></h3>
-                <h3><%= @player2.free_throws_percentage %></h3>
-                <h3><%= @player2.total_rebounds_percentage %></h3>
-                <h3><%= @player2.true_shooting_percentage %></h3>
-                <h3><%= @player2.player_efficiency_rating %></h3>
-                <h3><%= @player2.assists_percentage %></h3>
-                <h3><%= @player2.steals_percentage %></h3>
-                <h3><%= @player2.blocks_percentage %></h3>
-                <h3><%= @player2.turn_overs_percentage %></h3>
-                <h3><%= @player2.usage_rate_percentage %></h3>
-            
-            </div>
-
-        </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.field_goals_percentage %>%</h3>
+        <h2> Gols de campo </h2>
+        <h3><%= @player2.field_goals_percentage %>%</h3>
     </div>
+
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%=@player1.two_pointers_percentage%>%</h3>
+        <h2> Gols de dois pontos </h2>
+        <h3><%= @player2.two_pointers_percentage %>%</h3>
+    </div>
+
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.three_pointers_percentage %>%</h3>
+        <h2> Gols de tres pontos </h2>
+        <h3><%= @player2.three_pointers_percentage %>%</h3>
+    </div>
+
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.free_throws_percentage %>%</h3>
+        <h2> Lances livres </h2>
+        <h3><%= @player2.free_throws_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.total_rebounds_percentage %>%</h3>
+        <h2> Rebotes </h2>
+        <h3><%= @player2.total_rebounds_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.true_shooting_percentage %>%</h3>
+        <h2> Acertos na cesta </h2>
+        <h3><%= @player2.true_shooting_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.player_efficiency_rating %>%</h3>
+        <h2> Taxa de eficiência </h2>
+        <h3><%= @player2.player_efficiency_rating %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.assists_percentage %>%</h3>
+        <h2> Assistencias </h2>
+        <h3><%= @player2.assists_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.steals_percentage %>%</h3>
+        <h2> Roubos de bola </h2>
+        <h3><%= @player2.steals_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.blocks_percentage %>%</h3>
+        <h2> Bloqueios </h2>
+        <h3><%= @player2.blocks_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.turn_overs_percentage %>%</h3>
+        <h2> Erros de Passe </h2>
+        <h3><%= @player2.turn_overs_percentage %>%</h3>
+    </div>
+    <div class="d-inline-flex w-100 justify-content-between mb-2">
+        <h3><%= @player1.usage_rate_percentage %>%</h3>
+        <h2> Taxa de uso </h2>
+        <h3><%= @player2.usage_rate_percentage %>%</h3>
+    </div>
+
+<% else %>
+    <h2 class="name">Infelizmente alguns dos players não tem status para serem exibidos, ficando impossível a comparação</h2>
+<%end%>
 </section>
