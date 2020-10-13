@@ -15,8 +15,8 @@ class TeamsController < ApplicationController
     end
 
     def comparison
-        @team1 = Player.find(params[:first_team])
-        @team2 = Player.find(params[:second_team])
+        @team1 = Team.find(params[:first_team])
+        @team2 = Team.find(params[:second_team])
     end
 
     def search

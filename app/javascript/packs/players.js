@@ -1,14 +1,30 @@
-$( document ).ready(function(){
+function setup_autocomplete(input_autocomplete, hidden_field){
+  
 
-    $input = $('*[data-behavior="autocompletePlayers"]')
+  var options = { 
+    url: function(phrase) {
+      return "/players/search.json?q=" + phrase;
+    },
+    getValue: "name",
+    list: {
+
+      onSelectItemEvent: function() {
+        var value = $(input_autocomplete).getSelectedItemData().id;
+        
+        $(hidden_field).val(value);
+      }
+    }};
+
+
+
+    $(input_autocomplete).easyAutocomplete(options);
+}
+
+$( document ).ready(function(){
   
-    var options = {
-      url: function(phrase) {
-        return "/players/search.json?q=" + phrase;
-      },
-      getValue: "name",
-    };
+
+  setup_autocomplete('#first_player', '#hidden_first_player')
+  setup_autocomplete('#second_player', '#hidden_second_player')
+    
   
-    $input.easyAutocomplete(options);
-  
-  });
+});

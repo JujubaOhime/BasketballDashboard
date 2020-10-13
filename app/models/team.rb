@@ -13,6 +13,7 @@ class Team < ApplicationRecord
     delegate :turn_overs_percentage, to: :team_stat
     delegate :true_shooting_percentage, to: :team_stat
     delegate :total_rebounds_percentage, to: :team_stat
+    delegate :player_efficiency_rating, to: :team_stat
     paginates_per 12
 
     

@@ -1,3 +1,57 @@
-<%= @player1.first_name %>
+<section class="container comparison">
+<h2><%=@player1.first_name%> <%=@player1.last_name%> vs <%=@player2.first_name%> <%=@player2.last_name%></h2>
+    <div>
+        <div class="row">
+            
 
-<%= @player2.first_name %>
+            <div class="col">
+                <h3><%=@player1.two_pointers_percentage%></h3>
+                <h3><%= @player1.field_goals_percentage %></h3>
+                <h3><%= @player1.two_pointers_percentage %></h3>
+                <h3><%= @player1.three_pointers_percentage %></h3>
+                <h3><%= @player1.free_throws_percentage %></h3>
+                <h3><%= @player1.total_rebounds_percentage %></h3>
+                <h3><%= @player1.true_shooting_percentage %></h3>
+                <h3><%= @player1.player_efficiency_rating %></h3>
+                <h3><%= @player1.assists_percentage %></h3>
+                <h3><%= @player1.steals_percentage %></h3>
+                <h3><%= @player1.blocks_percentage %></h3>
+                <h3><%= @player1.turn_overs_percentage %></h3>
+                <h3><%= @player1.usage_rate_percentage %></h3>
+            </div>
+
+            <div class="col attribute">
+                <h2> field_goals_percentage </h2>
+                <h2> two_pointers_percentage </h2>
+                <h2> three_pointers_percentage </h2>
+                <h2> free_throws_percentage </h2>
+                <h2>  total_rebounds_percentage</h2>
+                <h2> true_shooting_percentage </h2>
+                <h2> player_efficiency_rating </h2>
+                <h2> assists_percentage </h2>
+                <h2> steals_percentage </h2>
+                <h2> blocks_percentage </h2>
+                <h2> turn_overs_percentage </h2>
+                <h2> usage_rate_percentage </h2>
+
+            </div>
+
+            <div class="col">
+                <h3><%= @player2.field_goals_percentage %></h3>
+                <h3><%= @player2.two_pointers_percentage %></h3>
+                <h3><%= @player2.three_pointers_percentage %></h3>
+                <h3><%= @player2.free_throws_percentage %></h3>
+                <h3><%= @player2.total_rebounds_percentage %></h3>
+                <h3><%= @player2.true_shooting_percentage %></h3>
+                <h3><%= @player2.player_efficiency_rating %></h3>
+                <h3><%= @player2.assists_percentage %></h3>
+                <h3><%= @player2.steals_percentage %></h3>
+                <h3><%= @player2.blocks_percentage %></h3>
+                <h3><%= @player2.turn_overs_percentage %></h3>
+                <h3><%= @player2.usage_rate_percentage %></h3>
+            
+            </div>
+
+        </div>
+    </div>
+</section>

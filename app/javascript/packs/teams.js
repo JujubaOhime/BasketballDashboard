@@ -1,14 +1,30 @@
-$( document ).ready(function(){
+function setup_autocomplete(input_autocomplete, hidden_field){
+  
 
-    $input = $('*[data-behavior="autocompleteTeam"]')
+  var options = { 
+    url: function(phrase) {
+      return "/teams/search.json?q=" + phrase;
+    },
+    getValue: "name",
+    list: {
+
+      onSelectItemEvent: function() {
+        var value = $(input_autocomplete).getSelectedItemData().id;
+        
+        $(hidden_field).val(value);
+      }
+    }};
+
+
+
+    $(input_autocomplete).easyAutocomplete(options);
+}
+
+$( document ).ready(function(){
   
-    var options = {
-      url: function(phrase) {
-        return "/teams/search.json?q=" + phrase;
-      },
-      getValue: "name",
-    };
+
+  setup_autocomplete('#first_team', '#hidden_first_team')
+  setup_autocomplete('#second_team', '#hidden_second_team')
+    
   
-    $input.easyAutocomplete(options);
-  
-  });
+});

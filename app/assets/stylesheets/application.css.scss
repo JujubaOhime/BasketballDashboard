@@ -11,7 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require easy-autocomplete
  *= require_self
  */
  // Place all the styles related to the LandingPage controller here.
@@ -467,21 +466,22 @@ a:hover{
 }
 
 .search-border{
-  padding: .75rem;
+  padding: .50rem;
   margin-bottom: 1.5rem;
   border-radius: none;
   background-color: var(--primary);
   border-radius: 10px;
   box-shadow: 2px 2px 1px var(--dark-light);
   font-size: 16px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+}
+
+.easy-autocomplete{
+  width: 80px !important;
 }
 
 .input-group{
   position: relative;
   display: flex;
-  flex-wrap: wrap;
   align-items: stretch;
   width: 100%;
 }
@@ -790,6 +790,65 @@ a:hover{
   height: unset !important;
 }
 
+.comparison{
+  col h3{
+    font-size: 20px;
+    font-family: Roboto;
+    text-align: end;
+  }
+
+  h2{
+    color: var(--primary);
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+.comparison-form input[type=search]{
+  border: none;
+    background-color: var(--primary);
+    font-size: 16px;
+    color: var(--constrast-dark-light);
+    width: 85px;
+    box-shadow: none !important;
+    padding: 0px !important;
+}
+
+.comparison-form input[type=search]::placeholder{
+  font-family: "Roboto";
+}
+
+.easy_autocomplete input{
+  padding: 0px;
+  box-shadow: 0px;
+  color: unset;
+  border-color: unset;
+    border-radius: unset;
+    border-style: unset;
+    border-width: unset;
+    box-shadow: unset;
+    float: none;
+    border-radius: 0px;
+}
+
+.easy-autocomplete{
+  height: unset;
+  position: unset;
+}
+
+
+.comparison-form{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comparison-form h2{
+  font-size: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--primary);
+}
+
 @media only screen and (max-width: 990px){
   .team-position{
     justify-content: center;
@@ -828,6 +887,14 @@ a:hover{
   }
 
   @media only screen and (max-width: 620px){
+
+    .comparison-form h2{
+      font-size: 38px;
+    }
+
+    .comparison-form{
+      justify-content: center;
+    }
 
     #player{
       height: unset;

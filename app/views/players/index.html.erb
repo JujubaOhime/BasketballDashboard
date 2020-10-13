@@ -12,6 +12,17 @@
     </div>
   <% end %>
 
+<div>
+  <%= form_with(url: comparison_players_path, method: :get, local: true, class:"comparison-form") do %>
+    <input type="search" placeholder="Escreva o nome" id="first_player" data-behavior="autocompleteTeam">
+    <h2> vs </h2>
+    <input type="search" placeholder="Escreva o nome" id="second_player" data-behavior="autocompleteTeam">
+    <input type="hidden" name="first_player" id="hidden_first_player">
+    <input type="hidden" name="second_player" id ="hidden_second_player">
+  <%= submit_tag %>
+<% end %>
+</div>
+
 <h2 class="d-none d-sm-block mt-3 text-right">Jogadores</h2>
 <h2 class="d-sm-none mt-3 text-center">Jogadores</h2>
 
