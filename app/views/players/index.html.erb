@@ -2,7 +2,7 @@
   <%= search_form_for @q do |f| %>
     <div class="search-border">
       <div class="input-group">
-        <%= f.search_field :full_name_or_first_name_or_last_name_or_team_name_cont, placeholder: "Pesquisar", data: { behavior: "autocompletePlayers" } %>
+        <%= f.search_field :full_name_or_first_name_or_last_name_or_team_name_cont, placeholder: "Pesquisar", id: 'search_player', data: { behavior: "autocompletePlayers" } %>
         <div class="input-group-append">
           <%= button_tag( :class => "button_green") do %>
             <i class="fa fa-search"></i>
@@ -12,15 +12,27 @@
     </div>
   <% end %>
 
-<div>
+<div class="d-flex justify-content-end">
   <%= form_with(url: comparison_players_path, method: :get, local: true, class:"comparison-form") do %>
-    <input type="search" placeholder="Escreva o nome" id="first_player" data-behavior="autocompleteTeam">
-    <h2> vs </h2>
-    <input type="search" placeholder="Escreva o nome" id="second_player" data-behavior="autocompleteTeam">
-    <input type="hidden" name="first_player" id="hidden_first_player">
-    <input type="hidden" name="second_player" id ="hidden_second_player">
-  <%= submit_tag %>
-<% end %>
+    <div class="search-border">
+      <div class="input-group">
+        <input type="search" placeholder="Nome" id="first_player" data-behavior="autocompletePlayers">
+      </div>
+    </div>
+    <h2> Vs </h2>
+    <div class="search-border">
+      <div class="input-group">
+        <input type="search" placeholder="Nome" id="second_player" data-behavior="autocompletePlayers ">
+        <input type="hidden" name="first_player" id="hidden_first_player">
+        <input type="hidden" name="second_player" id ="hidden_second_player" class="">
+        <div class="input-group-append">
+          <%= button_tag( :class => "button_green") do %>
+            <i class="fa fa-search"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <h2 class="d-none d-sm-block mt-3 text-right">Jogadores</h2>

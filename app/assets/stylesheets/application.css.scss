@@ -476,7 +476,11 @@ a:hover{
 }
 
 .easy-autocomplete{
-  width: 80px !important;
+  width: 80px
+}
+
+.search-vs-display{
+  justify-content: flex-end;
 }
 
 .input-group{
@@ -797,9 +801,9 @@ a:hover{
     text-align: end;
   }
 
-  h2{
+  .col-main h2{
     color: var(--primary);
-    margin-top: 20px;
+    margin-top: 5px;
     text-align: center;
   }
 }
@@ -849,6 +853,40 @@ a:hover{
   color: var(--primary);
 }
 
+.comparison .col-main{
+  font-size: 30px;
+}
+
+.comparison .name{
+  display: block;
+  font-size: 60px;
+  text-align: center;
+  color: var(--primary);
+  text-shadow: 3px 3px 0px var(--dark-light);
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.col-first{
+  text-align: left;
+}
+
+.col-last{
+  text-align: right;
+}
+
+.comparison .col h3{
+  font-size: 20px;
+  font-family: "Roboto";
+  color: var(--dark-light);
+}
+
+.easy-autocomplete input{
+  box-shadow: 0px;
+}
+
+
+
 @media only screen and (max-width: 990px){
   .team-position{
     justify-content: center;
@@ -887,6 +925,10 @@ a:hover{
   }
 
   @media only screen and (max-width: 620px){
+
+    .search-vs-display{
+      justify-content: center;
+    }
 
     .comparison-form h2{
       font-size: 38px;

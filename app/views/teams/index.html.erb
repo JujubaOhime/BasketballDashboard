@@ -3,7 +3,7 @@
 <%= search_form_for @q do |f| %>
   <div class="search-border">
     <div class="input-group">
-      <%= f.search_field :name_or_city_cont, placeholder: "Pesquisar", data: { behavior: "autocompleteTeam" } %>
+      <%= f.search_field :name_or_city_cont, placeholder: "Pesquisar", id: 'search_team', data: { behavior: "autocompleteTeam" } %>
       <div class="input-group-append">
         <%= button_tag( :class => "button_green") do %>
           <i class="fa fa-search"></i>
@@ -13,7 +13,7 @@
   </div>
 <% end %>
 
-<div class="d-flex justify-content-end">
+<div class="d-flex search-vs-display">
   <%= form_with(url: comparison_teams_path, method: :get, local: true, class:"comparison-form") do %>
     <div class="search-border">
       <div class="input-group">
@@ -21,7 +21,7 @@
       </div>
     </div>
     <h2> Vs </h2>
-    <div class="search-border">
+    <div class="search-border"> 
       <div class="input-group">
         <input type="search" placeholder="Nome" id="second_team" data-behavior="autocompleteTeam">
         <input type="hidden" name="first_team" id="hidden_first_team">
